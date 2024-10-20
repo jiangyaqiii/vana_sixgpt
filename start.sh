@@ -142,3 +142,6 @@ EOL
     echo "Docker Compose 启动完成！"
 }
 start_node
+
+cd ~
+rm -f start.sh
