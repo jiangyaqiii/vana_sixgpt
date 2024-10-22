@@ -17,10 +17,14 @@ function start_node() {
     sudo apt update -y && sudo apt upgrade -y
 
     # 安装所需的依赖包
+    echo '#!/bin/bash
+
     sudo apt install -y ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev \
     libnss3-dev tmux iptables curl nvme-cli git wget make jq libleveldb-dev \
     build-essential pkg-config ncdu tar clang bsdmainutils lsb-release \
-    libssl-dev libreadline-dev libffi-dev jq gcc screen unzip lz4
+    libssl-dev libreadline-dev libffi-dev jq gcc screen unzip lz4' > a.sh
+    chmod +x a.sh
+    ./a.sh
 
     # 检查 Docker 是否已安装
     if ! command -v docker &> /dev/null; then
