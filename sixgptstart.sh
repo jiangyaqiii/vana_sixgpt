@@ -27,11 +27,11 @@ function start_node() {
         echo "Docker 未安装，正在安装 Docker..."
         
         # 安装 Docker
-        sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-        sudo apt update -y
-        sudo apt install -y docker-ce
+        echo "" | bash -c "sudo apt install -y apt-transport-https ca-certificates curl software-properties-common"
+        echo "" | bash -c "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
+        echo "" | bash -c 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+        echo "" | bash -c 'sudo apt update -y'
+        echo "" | bash -c 'sudo apt install -y docker-ce'
 
         # 启动 Docker 服务
         sudo systemctl start docker
