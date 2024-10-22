@@ -27,14 +27,20 @@ function start_node() {
         echo "Docker 未安装，正在安装 Docker..."
         
         # 安装 Docker
+        echo '1'
         echo "" | bash -c "sudo apt install -y apt-transport-https ca-certificates curl software-properties-common"
+        echo '2'
         echo "" | bash -c "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
-        echo "" | bash -c 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+        echo '3'
+        echo "" | bash -c 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"'
+        echo '4'
         echo "" | bash -c 'sudo apt update -y'
+        echo '5'
         echo "" | bash -c 'sudo apt install -y docker-ce'
-
+        echo '6'
         # 启动 Docker 服务
         sudo systemctl start docker
+        echo '7'
         sudo systemctl enable docker
 
         echo "Docker 安装完成！"
@@ -47,7 +53,9 @@ function start_node() {
         echo "Docker Compose 未安装，正在安装 Docker Compose..."
         
         # 获取最新版本号并安装 Docker Compose
+        echo '8'
         VER=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep tag_name | cut -d '"' -f 4)
+        echo '9'
         curl -L "https://github.com/docker/compose/releases/download/$VER/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
         chmod +x /usr/local/bin/docker-compose
 
